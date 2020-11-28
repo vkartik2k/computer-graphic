@@ -36,11 +36,11 @@ var startGame = function() {
     Game.setBoard(0,new Starfield(50,0.6,100,true));
   } else {
     Game.setBoard(0,new Starfield(20,0.4,100,true));
-    Game.setBoard(1,new Starfield(50,0.6,100));
-    Game.setBoard(2,new Starfield(100,1.0,50));
+    // Game.setBoard(1,new Starfield(50,0.6,100));
+    // Game.setBoard(2,new Starfield(100,1.0,50));
   }  
-  Game.setBoard(3,new TitleScreen("Game 2", 
-                                  "Press space to start playing",
+  Game.setBoard(3,new TitleScreen("CG Project Game 2", 
+                                  "Press space",
                                   playGame));
 };
 
@@ -91,7 +91,7 @@ var Starfield = function(speed,opacity,numStars,clear) {
   // If the clear option is set, 
   // make the background black instead of transparent
   if(clear) {
-    starCtx.fillStyle = "#000";
+    starCtx.fillStyle = "rgb(39, 47, 117)";
     starCtx.fillRect(0,0,stars.width,stars.height);
   }
 
