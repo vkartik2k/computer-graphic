@@ -56,8 +56,6 @@ var level1 = [
   [ 22000,  25000, 400, 'wiggle', { x: 100 }]
 ];
 
-
-
 var playGame = function() {
   var board = new GameBoard();
   board.add(new PlayerShip());
@@ -79,8 +77,6 @@ var loseGame = function() {
 };
 
 var Starfield = function(speed,opacity,numStars,clear) {
-
-  // Set up the offscreen canvas
   var stars = document.createElement("canvas");
   stars.width = Game.width; 
   stars.height = Game.height;
@@ -88,15 +84,11 @@ var Starfield = function(speed,opacity,numStars,clear) {
 
   var offset = 0;
 
-  // If the clear option is set, 
-  // make the background black instead of transparent
   if(clear) {
     starCtx.fillStyle = "rgb(39, 47, 117)";
     starCtx.fillRect(0,0,stars.width,stars.height);
   }
 
-  // Now draw a bunch of random 2 pixel
-  // rectangles onto the offscreen canvas
   starCtx.fillStyle = "#FFF";
   starCtx.globalAlpha = opacity;
   for(var i=0;i<numStars;i++) {
@@ -106,13 +98,10 @@ var Starfield = function(speed,opacity,numStars,clear) {
                      2);
   }
 
-  // This method is called every frame
-  // to draw the starfield onto the canvas
   this.draw = function(ctx) {
     var intOffset = Math.floor(offset);
     var remaining = stars.height - intOffset;
 
-    // Draw the top half of the starfield
     if(intOffset > 0) {
       ctx.drawImage(stars,
                 0, remaining,
@@ -299,5 +288,3 @@ Explosion.prototype.step = function(dt) {
 window.addEventListener("load", function() {
   Game.initialize("game",sprites,startGame);
 });
-
-
